@@ -16,6 +16,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FunctionApp1
 {
@@ -160,8 +161,8 @@ namespace FunctionApp1
                 //        Content = new StringContent(er.Serialize(), Encoding.UTF8, Constants.ContentType)
           //} :
                   return  new HttpResponseMessage(HttpStatusCode.OK)
-                    {
-                        Content = new StringContent(JsonConvert.SerializeObject(_lst), Encoding.UTF8, Constants.ContentType)
+                  {
+                        Content = new StringContent(JsonConvert.SerializeObject(_lst), Encoding.UTF8, "application/json")
                     };
 
 
