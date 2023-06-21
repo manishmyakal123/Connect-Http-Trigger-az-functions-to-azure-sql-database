@@ -133,10 +133,10 @@ namespace FunctionApp1
                 // Ensure to use the Environment class to get the connection string
                 string _connection_string = "Server=tcp:coursedb1001.database.windows.net,1433;Initial Catalog=Course;Persist Security Info=False;User ID=dbCourse;Password=Manish@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                // string _connection_string = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_SQLConnectionString");
-                string _statement = "SELECT CourseId,Name,Batch,StartDate from Course";
+               // string _statement = "SELECT CourseId,Name,Batch,StartDate from Course";
                 SqlConnection _connection = new SqlConnection(_connection_string);
                 _connection.Open();
-                SqlCommand _sqlcommand = new SqlCommand(_statement, _connection);
+                SqlCommand _sqlcommand = new SqlCommand("GetCourses", _connection);
                 using (SqlDataReader _reader = _sqlcommand.ExecuteReader())
                 {
                     while (_reader.Read())
