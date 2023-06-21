@@ -161,7 +161,7 @@ namespace FunctionApp1
           //} :
                   return  new HttpResponseMessage(HttpStatusCode.OK)
                     {
-                        Content = new StringContent(JsonConvert.SerializeObject(_lst), Encoding.UTF8, Constants.ContentType)
+                        Content = new StringContent(JsonConvert.SerializeObject(_lst), Encoding.UTF8, "application/json")
                     };
 
 
